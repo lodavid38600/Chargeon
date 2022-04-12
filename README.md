@@ -50,7 +50,7 @@ _ Beta :_
 
 
 ## Auteurs
-Listez le(s) auteur(s) du projet ici !
+
 * **MORALES Victor** _alias_ [@VicMls38](https://github.com/VicMls38)
 * **DAVID Louis** _alias_ [@lodavid38600](https://github.com/lodavid38600)
 
