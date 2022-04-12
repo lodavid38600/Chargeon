@@ -15,8 +15,10 @@ Le serveur fonctionne sur le port 5500 en local avec NodeJS
 Ce qu'il est requis pour commencer avec Chargeon :
 
 - Taper la commande :  ``git clone https://github.com/lodavid38600/Chargeon``
+
 Ensuite vous devez vérifier dans le dossier models que la base de données MongoDB est bien connecter sur le bon serveur
 Avec l'invite de commande rendez-vous dans le dossier de votre projet
+
 - Taper la commande :  ``npm install``
 - Taper la commande :  ``npm start``
 
