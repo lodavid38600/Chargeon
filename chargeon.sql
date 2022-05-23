@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 11 mai 2022 à 06:21
--- Version du serveur :  8.0.21
+-- Généré le : lun. 23 mai 2022 à 08:33
+-- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -29,15 +29,15 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `chargeur`;
 CREATE TABLE IF NOT EXISTS `chargeur` (
-  `num_serie` int NOT NULL,
+  `num_serie` int(11) NOT NULL,
   `type` varchar(255) NOT NULL COMMENT 'Extérieur / intérieur',
   `protection` varchar(255) NOT NULL COMMENT 'IP 44 ou 55 etc...',
   `puissance` varchar(255) NOT NULL COMMENT 'KW',
-  `priorité` int NOT NULL COMMENT 'Haute prio = 1\r\nMoyenne = 2\r\nBasse = 3',
-  `lattitude` varchar(255) NOT NULL,
+  `priorite` varchar(255) NOT NULL COMMENT 'Haute prio = 1\r\nMoyenne = 2\r\nBasse = 3',
+  `latitude` varchar(255) NOT NULL,
   `longitude` varchar(255) NOT NULL,
   `altitude` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -47,12 +47,12 @@ CREATE TABLE IF NOT EXISTS `chargeur` (
 
 DROP TABLE IF EXISTS `cout`;
 CREATE TABLE IF NOT EXISTS `cout` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `montant` varchar(255) NOT NULL,
   `support` varchar(255) DEFAULT NULL,
   `zone` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -62,14 +62,14 @@ CREATE TABLE IF NOT EXISTS `cout` (
 
 DROP TABLE IF EXISTS `intervention`;
 CREATE TABLE IF NOT EXISTS `intervention` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `id_cout` int NOT NULL,
-  `id_chargeur` int NOT NULL,
-  `mission` int NOT NULL COMMENT 'Installation 1/entretien 2 / Panne 3',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_cout` int(11) NOT NULL,
+  `id_chargeur` int(11) NOT NULL,
+  `mission` int(11) NOT NULL COMMENT 'Installation 1/entretien 2 / Panne 3',
   `temps` varchar(255) NOT NULL,
-  `concurrence` int NOT NULL COMMENT '1 = concurrence proche\r\n0 = pas de concurrence',
+  `concurrence` int(11) NOT NULL COMMENT '1 = concurrence proche\r\n0 = pas de concurrence',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -79,11 +79,11 @@ CREATE TABLE IF NOT EXISTS `intervention` (
 
 DROP TABLE IF EXISTS `technicien`;
 CREATE TABLE IF NOT EXISTS `technicien` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `id_intervention` int NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_intervention` int(11) NOT NULL,
   `niveau` varchar(255) NOT NULL COMMENT 'B1/B2 etc...',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
