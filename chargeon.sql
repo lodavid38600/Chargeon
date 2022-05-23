@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 23 mai 2022 à 08:33
+-- Généré le : lun. 23 mai 2022 à 08:36
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -29,14 +29,15 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `chargeur`;
 CREATE TABLE IF NOT EXISTS `chargeur` (
-  `num_serie` int(11) NOT NULL,
+  `num_serie` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(255) NOT NULL COMMENT 'Extérieur / intérieur',
   `protection` varchar(255) NOT NULL COMMENT 'IP 44 ou 55 etc...',
   `puissance` varchar(255) NOT NULL COMMENT 'KW',
   `priorite` varchar(255) NOT NULL COMMENT 'Haute prio = 1\r\nMoyenne = 2\r\nBasse = 3',
   `latitude` varchar(255) NOT NULL,
   `longitude` varchar(255) NOT NULL,
-  `altitude` varchar(255) NOT NULL
+  `altitude` varchar(255) NOT NULL,
+  PRIMARY KEY (`num_serie`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
