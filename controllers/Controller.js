@@ -15,10 +15,30 @@ module.exports = {
 
 
         SELECT : (req, res) => {
-                let medoc_Id = req.query['type'];
+               
                 //let compte_nom = req.body.nom;
-                Model.SELECT(medoc, mois, medoc_Id)
-           
+
+               Model.SELECT(function(lignes, taille){
+                        res.json({
+                                taille: taille,
+                                id: lignes,
+                                }
+                        );
+                });
+        },
+
+        SELECTALL : (req, res) => {
+               
+                //let compte_nom = req.body.nom;
+
+               Model.SELECTALL(function(lignes, taille){
+                       console.log(lignes);
+                        res.json({
+                                taille: taille,
+                                id: lignes,
+                                }
+                        );
+                });
         },
 
 
@@ -45,6 +65,17 @@ module.exports = {
                Model.INSERT(type, puissance, priorite, protection, lat, long);
                res.render("./index");
               
-        }
+        },
+
+        DELETE : (req, res) => {
+               
+                let borneId = req.query['borneId'];
+
+               Model.DELETE(borneId);
+                res.render("./index");
+              
+             
+        },
+
 
 }

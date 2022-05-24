@@ -1,7 +1,6 @@
 
 
 //Importation de la connexion à la bdd
-const mysqlconnexion = require('../database');
 var db = require('../database')
 
 
@@ -11,12 +10,41 @@ module.exports={
 
     SELECT:function(callback){
   
-    
-        var sql='SELECT cli_Id, cli_secu, cli_nom, cli_prenom FROM client ';
+        var sql='SELECT count(num_serie) as taille FROM chargeur ';
         db.query(sql, function (err, data, fields){
             if (err) throw err;
-            return callback(data);
+            console.log(data);
+            let taille = data;
+
+            var sql1='SELECT num_serie FROM chargeur ';
+            db.query(sql1, function (err1, data1, fields1){
+            if (err1) throw err1;
+            console.log(data1);
+            return callback(data1, taille);
         });
+        });
+    
+        
+        
+    },
+
+    SELECTALL :function(callback){
+  
+        var sql='SELECT count(num_serie) as taille FROM chargeur ';
+        db.query(sql, function (err, data, fields){
+            if (err) throw err;
+            //console.log(data);
+            let taille = data;
+
+            var sql1='SELECT * FROM chargeur ';
+            db.query(sql1, function (err1, data1, fields1){
+            if (err1) throw err1;
+            //console.log(data1);
+            return callback(data1, taille);
+        });
+        });
+    
+        
         
     },
 
@@ -29,9 +57,11 @@ module.exports={
           });
     },
 
-    Delete_Client:function(cli_Id){
 
-        var sql="DELETE FROM client where cli_Id = '"+cli_Id+"'";
+
+    DELETE:function(borneId){
+
+        var sql="DELETE FROM chargeur where num_serie = '"+borneId+"'";
         console.log(sql);
         db.query(sql, function (err, result) {
             if (err) throw err;

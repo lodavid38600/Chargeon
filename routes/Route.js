@@ -10,7 +10,9 @@ routeur.use(express.urlencoded());
 
 //Définition des routes et des fonctions controller associées
 routeur.get('/select', Controller.SELECT);
+routeur.get('/selectall', Controller.SELECTALL);
 routeur.get('/insert', Controller.INSERT);
+routeur.get('/delete', Controller.DELETE);
 routeur.get('/', Controller.Accueil);
 
 
