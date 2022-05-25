@@ -42,18 +42,55 @@ module.exports={
             //console.log(data1);
             return callback(data1, taille);
         });
-        });
-    
-        
-        
+        }); 
     },
 
-    INSERT:function(type, puissance, priorite, protection, lat, long){
+    
+    SELECTBORNE :function(callback, borneId){
 
-        var sql="INSERT INTO chargeur (type, puissance, priorite, protection, latitude, longitude) Values ('"+type+"', '"+puissance+"', '"+priorite+"', '"+protection+"' , '"+lat+"', '"+long+"') ";
+        var sql="SELECT * FROM chargeur WHERE num_serie = '"+borneId+"' ";
+        db.query(sql, function (err, data, fields){
+        if (err) throw err;
+        return callback(data);
+        });
+    },
+
+    INSERT:function(num_serie, type, puissance, priorite, protection, lat, long){
+
+
+        var sql='SELECT count(*) as semaine FROM chargeur WHERE semaine = "'+num_serie+'" ';
+        db.query(sql, function (err, data, fields){
+            if (err) throw err;
+            
+            let num = data[0]['semaine'];
+            console.log(num);
+            num = num + 1;
+
+            if(num < 10){
+                num = "00"+num+"";
+            }else if(num <100){
+                num = "0"+num+"";
+            }else if(num >= 100){
+                num = num;
+            }
+
+            num = ""+num_serie+"-"+num+"";
+       
+        var sql="INSERT INTO chargeur (num_serie, type, puissance, priorite, protection, latitude, longitude, semaine) Values ('"+num+"', '"+type+"', '"+puissance+"', '"+priorite+"', '"+protection+"' , '"+lat+"', '"+long+"', '"+num_serie+"') ";
         db.query(sql, function (err, result) {
             if (err) throw err;
             console.log(result.affectedRows + " record(s) created");
+          });
+        });
+    },
+
+
+    UPDATE:function(borneID, type, puissance, priorite, protection, lat, long){
+
+        var sql="UPDATE chargeur SET type = '"+type+"', puissance = '"+puissance+"', protection = '"+protection+"', priorite = '"+priorite+"', latitude = '"+lat+"' , longitude = '"+long+"' WHERE num_serie = "+borneID+" ";
+        db.query(sql, function (err, result) {
+            if (err) throw err;
+            console.log(result.affectedRows + " record(s) updated");
           });
     },
 
