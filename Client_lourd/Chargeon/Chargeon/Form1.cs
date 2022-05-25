@@ -37,5 +37,12 @@ namespace Chargeon
             frm4.Show();
 
         }
+
+        private void ShowForm5(object sender, EventArgs e)
+        {
+            Form5 frm5 = new Form5();
+            frm5.Show();
+
+        }
     }
 }

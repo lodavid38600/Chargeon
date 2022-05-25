@@ -25,22 +25,7 @@ namespace Chargeon
             InitializeComponent();
         }
 
-        
-        private class Item
-        {
-            public string _Id;
-
-            public Item( string id)
-            {
-                _Id = id;
-            }
-            public string Id
-            {
-                get { return _Id; }
-                set { _Id = value; }
-            }
-        }
-        
+       
         // Action au chargement de la page, ici le remplissage de la combobox avec les numéros de série des bornes de la BDD
         private void Form3_Load(object sender, EventArgs e)
         {
@@ -71,6 +56,42 @@ namespace Chargeon
             MessageBox.Show("Borne supprimé !");
             this.Close();
         }
-       
+
+        private void cbNumSerie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lvSelectAll.Items.Clear();
+
+            string str = new WebClient().DownloadString("http://127.0.0.1:3000/selectborne?borneId=" + cbNumSerie.Text);
+            JObject jo = JObject.Parse(str);
+
+
+
+            JToken typejson = jo["id"][0]["type"];
+            string type = typejson.ToObject<string>();
+
+            JToken protectionjson = jo["id"][0]["puissance"];
+            string protection = protectionjson.ToObject<string>();
+
+            JToken puissancejson = jo["id"][0]["puissance"];
+            string puissance = puissancejson.ToObject<string>();
+
+            JToken prioritejson = jo["id"][0]["priorite"];
+            string priorite = prioritejson.ToObject<string>();
+
+            JToken latitudejson = jo["id"][0]["latitude"];
+            string latitude = latitudejson.ToObject<string>();
+
+            JToken longitudejson = jo["id"][0]["longitude"];
+            string longitude = longitudejson.ToObject<string>();
+
+            ListViewItem it = new ListViewItem(cbNumSerie.Text);
+            it.SubItems.Add(type);
+            it.SubItems.Add(protection);
+            it.SubItems.Add(puissance);
+            it.SubItems.Add(priorite);
+            it.SubItems.Add(latitude);
+            it.SubItems.Add(longitude);
+            lvSelectAll.Items.Add(it);
+        }
     }  
 }

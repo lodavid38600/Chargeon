@@ -87,3 +87,4 @@ E:\Cle\Cours\BTS\contexte\Chargeon\Client_lourd\Chargeon\Chargeon\obj\Debug\Char
 E:\Cle\Cours\BTS\contexte\Chargeon\Client_lourd\Chargeon\Chargeon\obj\Debug\Chargeon.exe
 E:\Cle\Cours\BTS\contexte\Chargeon\Client_lourd\Chargeon\Chargeon\obj\Debug\Chargeon.pdb
 E:\Cle\Cours\BTS\contexte\Chargeon\Client_lourd\Chargeon\Chargeon\obj\Debug\Chargeon.Form4.resources
+E:\Cle\Cours\BTS\contexte\Chargeon\Client_lourd\Chargeon\Chargeon\obj\Debug\Chargeon.Form5.resources
