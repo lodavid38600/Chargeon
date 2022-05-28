@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.label1 = new System.Windows.Forms.Label();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,7 +46,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(113, 54);
+            this.label1.Location = new System.Drawing.Point(208, 47);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 17);
@@ -60,7 +61,7 @@
             "Interieur",
             "Exterieur"});
             this.cbType.Location = new System.Drawing.Point(256, 44);
-            this.cbType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbType.Margin = new System.Windows.Forms.Padding(4);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(160, 24);
             this.cbType.TabIndex = 1;
@@ -68,7 +69,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(117, 113);
+            this.label2.Location = new System.Drawing.Point(175, 125);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 17);
@@ -84,8 +85,8 @@
             "22 kW",
             "50 kW",
             "120 kW"});
-            this.cbPuissance.Location = new System.Drawing.Point(256, 113);
-            this.cbPuissance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbPuissance.Location = new System.Drawing.Point(256, 122);
+            this.cbPuissance.Margin = new System.Windows.Forms.Padding(4);
             this.cbPuissance.Name = "cbPuissance";
             this.cbPuissance.Size = new System.Drawing.Size(160, 24);
             this.cbPuissance.TabIndex = 6;
@@ -98,8 +99,8 @@
             "Faible",
             "Moyenne",
             "Haute"});
-            this.cbPriorite.Location = new System.Drawing.Point(256, 171);
-            this.cbPriorite.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbPriorite.Location = new System.Drawing.Point(256, 204);
+            this.cbPriorite.Margin = new System.Windows.Forms.Padding(4);
             this.cbPriorite.Name = "cbPriorite";
             this.cbPriorite.Size = new System.Drawing.Size(160, 24);
             this.cbPriorite.TabIndex = 7;
@@ -107,7 +108,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(117, 175);
+            this.label4.Location = new System.Drawing.Point(195, 207);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 17);
@@ -117,7 +118,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(557, 54);
+            this.label5.Location = new System.Drawing.Point(580, 47);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 17);
@@ -126,8 +127,8 @@
             // 
             // tbLat
             // 
-            this.tbLat.Location = new System.Drawing.Point(647, 44);
-            this.tbLat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbLat.Location = new System.Drawing.Point(647, 42);
+            this.tbLat.Margin = new System.Windows.Forms.Padding(4);
             this.tbLat.Name = "tbLat";
             this.tbLat.Size = new System.Drawing.Size(243, 22);
             this.tbLat.TabIndex = 10;
@@ -135,7 +136,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(557, 111);
+            this.label6.Location = new System.Drawing.Point(568, 125);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 17);
@@ -144,38 +145,41 @@
             // 
             // tbLong
             // 
-            this.tbLong.Location = new System.Drawing.Point(647, 105);
-            this.tbLong.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbLong.Location = new System.Drawing.Point(647, 122);
+            this.tbLong.Margin = new System.Windows.Forms.Padding(4);
             this.tbLong.Name = "tbLong";
             this.tbLong.Size = new System.Drawing.Size(243, 22);
             this.tbLong.TabIndex = 12;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(256, 373);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.BackColor = System.Drawing.Color.IndianRed;
+            this.btnCancel.Location = new System.Drawing.Point(256, 364);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(216, 76);
             this.btnCancel.TabIndex = 13;
-            this.btnCancel.Text = "Annuler";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Text = "Retour";
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.CloseForm2);
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(647, 373);
-            this.btnSend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSend.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnSend.Location = new System.Drawing.Point(674, 364);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(4);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(216, 76);
             this.btnSend.TabIndex = 14;
             this.btnSend.Text = "Envoyer";
-            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.UseVisualStyleBackColor = false;
             this.btnSend.Click += new System.EventHandler(this.AddBorne);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Moccasin;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.btnCancel);
@@ -189,9 +193,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbType);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Chargeon | Ajouter borne";
             this.ResumeLayout(false);
             this.PerformLayout();
 

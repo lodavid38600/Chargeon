@@ -21,6 +21,7 @@ namespace Chargeon
             InitializeComponent();
         }
 
+        /* Au chargement de la fenêtre rempli la ComboBox des numéros de séries */
         private void Form5_Load(object sender, EventArgs e)
         {
             string str = new WebClient().DownloadString("http://127.0.0.1:3000/select");
@@ -37,8 +38,10 @@ namespace Chargeon
                 cbNumSerie.Items.Add(jo["id"][i]["num_serie"]);
             }
         }
+        /*-------------------------*/
 
-
+        
+        /* Apple de l'URL à l'API pour récuperer les données de la borne choisi par l'utilisateur puis remplir les inputs avec ces données*/
         private void cbNumSerie_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -81,35 +84,39 @@ namespace Chargeon
                 return;
             }
         }
+        /*------------------------------------------------*/
 
+        /* Appel de l'URL à l'API  avec les paramètres de la borne pour la modification */
         private void updateBorne(object sender, EventArgs e)
         {
 
             HttpClient client = new HttpClient();
-            // Console.WriteLine("Appel vers l'API...");
 
             if (!Regex.Match(tbLat.Text, @"^(\+|-)?((\d((\.)|\.\d{1,6})?)|(0?[0-8]\d((\.)|\.\d{1,6})?)|(0?90((\.)|\.0{1,6})?))$").Success)
             {
-                // first name was incorrect
                 MessageBox.Show("Invalid latitude");
                 return;
             }
 
             if (!Regex.Match(tbLong.Text, @"^(\+|-)?((\d((\.)|\.\d{1,6})?)|(0?\d\d((\.)|\.\d{1,6})?)|(0?1[0-7]\d((\.)|\.\d{1,6})?)|(0*?180((\.)|\.0{1,6})?))$").Success)
             {
-                // first name was incorrect
                 MessageBox.Show("Invalid longitude");
                 return;
             }
-
-
-            // Appel à l'URL 
 
 
             var responseTask = client.GetAsync("http://127.0.0.1:3000/update?borneId="+ cbNumSerie.Text +"&type=" + cbType.Text + "&puissance=" + cbPuissance.Text + "&priorite=" + cbPriorite.Text + "&lat=" + tbLat.Text + "&long=" + tbLong.Text);
             responseTask.Wait();
             //MessageBox.Show("http://127.0.0.1:3000/update?borneId="+ cbNumSerie.Text +"&type=" + cbType.Text + "&puissance=" + cbPuissance.Text + "&priorite=" + cbPriorite.Text + "&lat=" + tbLat.Text + "&long=" + tbLong.Text);
             MessageBox.Show("Borne Modifié !");
+
+        }
+        /*------------------------------------*/
+
+       // Méthode de fermeture de la fenetre quand l'utilisateur clic sur le bouton retour
+        private void CloseForm5(object sender, EventArgs e)
+        {
+            this.Close();
 
         }
     }

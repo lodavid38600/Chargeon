@@ -20,7 +20,7 @@ namespace Chargeon
             //lvSelectAll.Visible = false;
         }
 
-
+        /* Au chargement de la fenêtre  récupère le nombre de bornes puis boucle pour récupérer les données de chaque bornes */
         private void Form4_Load(object sender, EventArgs e)
         {
             string str = new WebClient().DownloadString("http://127.0.0.1:3000/selectall");
@@ -60,6 +60,7 @@ namespace Chargeon
 
                 Console.WriteLine(num, type, protection, puissance, priorite, latitude, longitude);
 
+                // Affichage de la borne[i] dans la liste view
                 ListViewItem it = new ListViewItem(num);
                 it.SubItems.Add(type);
                 it.SubItems.Add(protection);
@@ -70,8 +71,9 @@ namespace Chargeon
                 lvSelectAll.Items.Add(it);
             }
         }
+        /*----------------------------------*/
 
-
+        /* Clear l'ancienne liste et affiche la nouvelle */
         private void btn_refresh(object sender, EventArgs e)
         {
         lvSelectAll.Items.Clear();
@@ -122,6 +124,14 @@ namespace Chargeon
                 it.SubItems.Add(longitude);
                 lvSelectAll.Items.Add(it);
             }
+        }
+        /*------------------*/
+
+        // Méthode de fermeture de la fenetre quand l'utilisateur clic sur le bouton retour
+        private void CloseForm4(object sender, EventArgs e)
+        {
+            this.Close();
+
         }
     }
 }

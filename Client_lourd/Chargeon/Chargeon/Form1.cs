@@ -17,6 +17,8 @@ namespace Chargeon
             InitializeComponent();
         }
 
+
+        /* Méthodes pour afficher les autres forms correspondant au choix utilisateur de la form 1 (accueil)  */
         private void ShowForm2(object sender, EventArgs e)
         {
             Form2 frm2 = new Form2();
@@ -44,5 +46,6 @@ namespace Chargeon
             frm5.Show();
 
         }
+        /*------------------         FIN        -------------------------*/
     }
 }

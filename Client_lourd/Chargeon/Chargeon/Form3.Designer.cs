@@ -29,6 +29,7 @@ namespace Chargeon
 		/// </summary>
 		private void InitializeComponent()
 		{
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.cbNumSerie = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -40,6 +41,7 @@ namespace Chargeon
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cbNumSerie
@@ -59,18 +61,19 @@ namespace Chargeon
             this.label1.Location = new System.Drawing.Point(83, 98);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 17);
+            this.label1.Size = new System.Drawing.Size(113, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Numéro de  série";
+            this.label1.Text = "Numéro de série";
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(413, 381);
+            this.btnDelete.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnDelete.Location = new System.Drawing.Point(722, 371);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(251, 63);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Supprimer";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btn_delete);
             // 
             // lvSelectAll
@@ -128,18 +131,32 @@ namespace Chargeon
             this.columnHeader7.Text = "Longitude";
             this.columnHeader7.Width = 100;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.IndianRed;
+            this.button1.Location = new System.Drawing.Point(86, 371);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(251, 63);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Retour";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.CloseForm3);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Moccasin;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lvSelectAll);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbNumSerie);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form3";
-            this.Text = "Form3";
+            this.Text = "Chargeon | Supprimer borne";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -159,5 +176,6 @@ namespace Chargeon
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.Button button1;
     }
 }
