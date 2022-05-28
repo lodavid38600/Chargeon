@@ -7,8 +7,8 @@ Chargeon est un logiciel développer afin de pouvoir gérer les bornes de rechar
 
 ### Pré-requis
 
-Il vous faudra pour utiliser Chargeon avoir un serveur MongoDB
-Le serveur fonctionne sur le port 5500 en local avec NodeJS
+Il vous faudra pour utiliser Chargeon avoir un serveur MYSQL
+Le serveur fonctionne sur le port 3000 en local avec NodeJS
 
 ### Installation
 
