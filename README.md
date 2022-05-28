@@ -22,7 +22,7 @@ Avec l'invite de commande rendez-vous dans le dossier de votre projet
 - Taper la commande :  ``npm install``
 - Taper la commande :  ``npm start``
 
-Maintenant si toutes les étapes on été respecter si vous allez sur ``http://localhost:3000`` vous devriez voir des données en JSON
+Maintenant si toutes les étapes on été respecter si vous allez sur ``http://localhost:3000/selectall`` vous devriez voir des données en JSON
 
 
 
