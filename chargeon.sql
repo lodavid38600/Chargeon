@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `chargeur`;
 CREATE TABLE IF NOT EXISTS `chargeur` (
-  `num_serie` int(11) NOT NULL AUTO_INCREMENT,
+  `num_serie` varchar(250) NOT NULL,
   `type` varchar(255) NOT NULL COMMENT 'Extérieur / intérieur',
   `protection` varchar(255) NOT NULL COMMENT 'IP 44 ou 55 etc...',
   `puissance` varchar(255) NOT NULL COMMENT 'KW',

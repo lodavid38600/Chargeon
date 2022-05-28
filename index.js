@@ -12,13 +12,10 @@ app.use(express.static('public'))
 app.use('/', Routeur)
 
 
+/* Lancement du serveur au port défini */
+
 const port = 3000
 
-
-
-
-
-/* partie test pour capture non chiffrée : Wireshark. */
 app.listen(port, () => {
   console.log(`server running HTTP. Go to http://localhost:${port}`)
 })

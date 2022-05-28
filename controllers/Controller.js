@@ -14,9 +14,9 @@ module.exports = {
         },
 
 
+        /* Renvoie les données en JSON du SELECT */
         SELECT : (req, res) => {
                
-                //let compte_nom = req.body.nom;
 
                Model.SELECT(function(lignes, taille){
                         res.json({
@@ -27,9 +27,9 @@ module.exports = {
                 });
         },
 
+        /* Renvoie les données en JSON du SELECTALL*/
         SELECTALL : (req, res) => {
                
-                //let compte_nom = req.body.nom;
 
                Model.SELECTALL(function(lignes, taille){
                        console.log(lignes);
@@ -41,6 +41,7 @@ module.exports = {
                 });
         },
 
+        /* Renvoie les données en JSON du SELECTBORNE*/
         SELECTBORNE : (req, res) => {
                
                 let borneId = req.query['borneId'];
@@ -56,9 +57,11 @@ module.exports = {
         },
 
 
+        /* Insertion d'une borne */
         INSERT: (req, res) =>{
 
 
+                // Création d'une méthode à la classe Date pour obtenir le numéro de la semaine
                 var year = new Date().getFullYear()
                 Date.prototype.getWeekNumber = function(){
                         
@@ -69,17 +72,19 @@ module.exports = {
                         var yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
                         var semaine = Math.ceil((((d - yearStart) / 86400000) + 1)/7)
                         return semaine;
-                      };
-                      //console.log(new Date().getWeekNumber())
-                      var num_serie = ""+year+"-"+new Date().getWeekNumber()+"";
-                      console.log(num_serie);
+                };
+                //console.log(new Date().getWeekNumber())
+                var num_serie = ""+year+"-"+new Date().getWeekNumber()+"";
+                console.log(num_serie);
               
+                // Récuperation des paramètres de l'URL pour insertion en base
                let type = req.query['type'];
                let puissance = req.query['puissance'];
                let priorite = req.query['priorite'];
                let lat = req.query['lat'];
                let long = req.query['long'];
 
+               // Fixer la protection par rapport au type
                let protection = "";
                if(type == "Exterieur"){
                 protection = "IP42";
@@ -98,8 +103,10 @@ module.exports = {
         },
 
 
+        /* Modification d'une borne */
         UPDATE: (req, res) =>{
               
+                // Récuperation des paramètres de l'URL
                 let borneId = req.query['borneId'];
                 let type = req.query['type'];
                 let puissance = req.query['puissance'];
@@ -107,6 +114,7 @@ module.exports = {
                 let lat = req.query['lat'];
                 let long = req.query['long'];
  
+                // Fixer la protection par rapport au type
                 let protection = "";
                 if(type == "Exterieur"){
                  protection = "IP42";
@@ -124,8 +132,11 @@ module.exports = {
                
          },
 
+
+        /* Supprimer une borne */ 
         DELETE : (req, res) => {
                
+                // Récuperation du numéro de série de la borne en paramètre de l'URL
                 let borneId = req.query['borneId'];
 
                Model.DELETE(borneId);
