@@ -22,7 +22,7 @@ Avec l'invite de commande rendez-vous dans le dossier de votre projet
 - Taper la commande :  ``npm install``
 - Taper la commande :  ``npm start``
 
-Maintenant si toutes les étapes on été respecter si vous allez sur ``http://localhost:5500/posts`` vous devriez voir des données en JSON
+Maintenant si toutes les étapes on été respecter si vous allez sur ``http://localhost:3000`` vous devriez voir des données en JSON
 
 
 
@@ -31,7 +31,7 @@ Maintenant si toutes les étapes on été respecter si vous allez sur ``http://l
 _Technologie :_
 * [NodeJS](https://nodejs.org/en/) - Framework JavaScript (backend)
 * [C#](https://docs.microsoft.com/fr-fr/dotnet/csharp/) - Application Client Lourd (backend & frontend)
-* [MongoDB](https://www.mongodb.com/fr-fr) - Base de donnée
+* [MYSQL](https://www.wampserver.com) - Base de donnée
 
 _Logiciel :_
 * [Visual studio](https://visualstudio.microsoft.com/fr/) - IDE
